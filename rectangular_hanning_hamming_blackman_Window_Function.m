@@ -1,0 +1,38 @@
+clc;
+clear all;
+close all;
+N = input('Enter N: ');
+
+for i = 1:N % rectangular window
+    W(i) = 1;
+end
+
+for i = 1:N % Hanning window
+    W1(i) = 0.5 - 0.5 * cos(2 * pi * (i-1) / N );
+end
+
+for i = 1:N % Hamming window
+    W2(i) = 0.54 - 0.46 * cos(2 * pi * (i-1) / N );
+end
+
+for i = 1:N % Blackman window
+    W3(i) = 0.46 - 0.5 * cos(2 * pi * (i-1) / N ) + 0.08 * cos(4 * pi * (i) / N );
+end
+
+
+subplot(5,1,1);
+stem(W);
+title('Rectangular Window');
+
+subplot(5,1,2);
+stem(W1);
+title('Hanning Window');
+
+subplot(5,1,3);
+stem(W2);
+title('Hamming Window');
+
+subplot(5,1,4);
+stem(W3);
+title('Blackman Window');
+legend('21UEC116 Deepak Kumar');
